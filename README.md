@@ -17,4 +17,8 @@ After the completion of 25 mins, it suggests to take a break. However, it's the 
 
 If the user takes the break, the countdouwn starts for 5 mins.
 
+![Screenshot (179)](https://user-images.githubusercontent.com/57907802/88201331-f22c3200-cc64-11ea-8641-868b8dcb78e4.png)
+
+Once the 5 mins are done, it reminds to start the work again.
+
 ![Screenshot (178)](https://user-images.githubusercontent.com/57907802/88200995-8a75e700-cc64-11ea-99ce-fde7fa645056.png)
