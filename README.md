@@ -1,7 +1,9 @@
 # The Pomodoro Technique
 
 This is simple but effective webpage for using the Pomodoro Technique.
-This techniques helps in having a strict focus on the work we do and with regular intervals, it ensures we get maximum retention.
+The idea behind the technique is that the timer instills a sense of urgency.
+Rather than feeling like you have endless time in the workday to get things done and have any distractions, you know you only have 25 minutes to make as much progress on a task as possible.
+It will help you stay focused and productive.
 
 First is first. What is the Pomodoro Technique?
 
@@ -15,7 +17,7 @@ After the completion of 25 mins, it suggests to take a break. However, it's the 
 
 ![Screenshot (177)](https://user-images.githubusercontent.com/57907802/88200783-3ec33d80-cc64-11ea-907c-6a85dd3fabb3.png)
 
-If the user takes the break, the countdouwn starts for 5 mins.
+If a user takes the break, the countdouwn starts for 5 mins.
 
 ![Screenshot (179)](https://user-images.githubusercontent.com/57907802/88201331-f22c3200-cc64-11ea-8641-868b8dcb78e4.png)
 
