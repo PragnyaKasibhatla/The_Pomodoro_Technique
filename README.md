@@ -24,3 +24,5 @@ If a user takes the break, the countdouwn starts for 5 mins.
 Once the 5 mins are done, it reminds to start the work again.
 
 ![Screenshot (178)](https://user-images.githubusercontent.com/57907802/88200995-8a75e700-cc64-11ea-99ce-fde7fa645056.png)
+
+And then, the user can repeat the process as many times as he can until his/her work is done.
