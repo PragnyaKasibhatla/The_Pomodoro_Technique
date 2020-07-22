@@ -1,0 +1,235 @@
+<!DOCTYPE HTML5>
+<head>
+  <title> The Pomodoro Technique</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+body
+{
+    background-image :url(pomodoro.png); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: left;
+}
+
+.btn {
+  border: 2px;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+}
+
+.btn:hover {}
+
+.btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.btn btn-success {
+  border-color: #4CAF50;
+  }
+.btn btn-danger {
+  border-color: #f44336;
+  }
+
+</style>
+<script>
+    
+
+    $(window).on('load',function(){
+        $('#Pomodoro').modal('show');
+    });
+
+
+
+  var m;
+  var sec;
+  var st;
+  var time;
+  function start()
+  {   
+      m = 25;
+      sec = 0;
+      st = -1;
+      time = setInterval(myTimer, 1000);
+  }
+  function stop() 
+  {
+    st = 1 ;
+  }
+  function TakeBreak()
+  {
+    m = 5;
+    sec = 0;
+    time = setInterval(breakTimer, 1000);
+  }
+
+function myTimer() {
+    sec--;
+    if(sec==-1)
+    {
+          sec = 59;
+          m--;
+    }
+    if(st == 1)
+    {
+      m = 25
+      sec = 0
+      document.getElementById('timer').innerHTML = m + " : " + sec ;
+      clearTimeout(time);
+    }
+    if(m<0)
+    {
+               //alert("Time Up");
+               clearTimeout(time);
+    }
+    if(m>=0)
+    {
+          document.getElementById('timer').innerHTML = m + " : " + sec;
+    }
+    if(m==0 && sec ==0)
+    {
+         document.getElementById('timer').innerHTML = "";
+
+         $('#brk').modal("show");
+    }
+}
+
+function breakTimer() {
+    sec--;
+    if(sec==-1)
+    {
+          sec = 59;
+          m--;
+    }
+    if(st == 1)
+    {
+      m = 25
+      sec = 0 
+      document.getElementById('timer').innerHTML = m + " : " + sec;
+      clearTimeout(time);
+    }
+    if(m<0)
+    {
+        clearTimeout(time);
+    }
+    if(m>=0)
+    {
+          document.getElementById('timer').innerHTML = m + " : " + sec;
+    }
+    if(m==0 && sec ==0)
+    {
+
+      $('#brkdone').modal("show");
+    }
+}
+</script>
+<center>
+<body>
+      <button id="break" type="button" class="btn btn-info" style="display:none;position:absolute;left:135px;top:350px" 
+      data-toggle="modal" data-target="#brk">Wanna take a break?</button>
+      <span id="timer" style="position:absolute;left:120px;top:225px;font-size:150px"></span>
+      <br>
+      <br>
+      <button type = "button" style="position:absolute;left:150px;top:450px;" class="btn btn-success" onclick="start()">Start Pomodoro</button>
+      <br>
+      <br>
+      <button type = "button" style="position:absolute;left:145px;top:550px;" class="btn btn-danger" onclick="stop()">Cancel Pomodoro</button>
+
+
+      <!-- Modal reminding to take break-->
+      <div class="modal fade" id="brk">
+          <div class="modal-dialog">
+            <div class="modal-content">
+      
+              <!-- Modal Header -->
+               <div class="modal-header">
+                  <h4 class="modal-title">Congratulations!!</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+        
+              <!-- Modal body -->
+              <div class="modal-body">
+                Your pomodoro is done! Take some break.
+              </div>
+        
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info" onclick="TakeBreak()" data-dismiss="modal">Yes, I need it</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Skip it</button>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+
+      <!-- Modal informing that break is done-->
+      <div class="modal fade" id="brkdone">
+          <div class="modal-dialog">
+            <div class="modal-content">
+      
+              <!-- Modal Header -->
+               <div class="modal-header">
+                  <h4 class="modal-title">Break is Over!!!</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+        
+              <!-- Modal body -->
+              <div class="modal-body">
+                Let's get back to work.
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Okay!</button>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+
+
+      <div class="modal fade" id="Pomodoro">
+          <div class="modal-dialog">
+            <div class="modal-content">
+      
+              <!-- Modal Header -->
+               <div class="modal-header">
+                  <b><h4 class="modal-title">What is Pomodoro?</h4></b>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+        
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <em style="font-size:20px">
+                  <p>
+                      The Pomodoro Technique is a time management system that encourages people to work with the time they have—rather than against it. 
+                  </p>
+                  <br>
+                  <p>
+                      Using this method, you break your workday into 25-minute chunks separated by five-minute breaks.
+                  </p>
+                  <br>
+                  <p>
+                      These intervals are referred to as pomodoros. After about four pomodoros, you take a longer break of about 15 to 20 minutes.
+                  </p>
+                </em>
+              </div>
+            </div>
+          </div>
+      </div>
+
+</body>
+</center>
+</html>
