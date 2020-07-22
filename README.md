@@ -10,3 +10,11 @@ First is first. What is the Pomodoro Technique?
 Starting Pomodoro starts the countdown for 25 mins.
 
 ![Screenshot (176)](https://user-images.githubusercontent.com/57907802/88199621-b55f3b80-cc62-11ea-8055-96d549a0a8c1.png)
+
+After the completion of 25 mins, it suggests to take a break. However, it's the users choice.
+
+![Screenshot (177)](https://user-images.githubusercontent.com/57907802/88200783-3ec33d80-cc64-11ea-907c-6a85dd3fabb3.png)
+
+If the user takes the break, the countdouwn starts for 5 mins.
+
+![Screenshot (178)](https://user-images.githubusercontent.com/57907802/88200995-8a75e700-cc64-11ea-99ce-fde7fa645056.png)
