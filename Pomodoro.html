@@ -2,6 +2,7 @@
 <head>
   <title> The Pomodoro Technique</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -9,43 +10,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <style>
-body
-{
-    background-image :url(pomodoro.png); 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    background-position: left;
-}
-
-.btn {
-  border: 2px;
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 5px #999;
-}
-
-.btn:hover {}
-
-.btn:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-.btn btn-success {
-  border-color: #4CAF50;
-  }
-.btn btn-danger {
-  border-color: #f44336;
-  }
-
 </style>
 <script>
     
-
+//An intro to Pomodoro on loading the webpage
     $(window).on('load',function(){
         $('#Pomodoro').modal('show');
     });
@@ -56,6 +24,7 @@ body
   var sec;
   var st;
   var time;
+//Starting the countdown : 25 mins
   function start()
   {   
       m = 25;
@@ -63,17 +32,19 @@ body
       st = -1;
       time = setInterval(myTimer, 1000);
   }
+  // stop or cancel the pomodoro
   function stop() 
   {
     st = 1 ;
   }
+  //function to set the time interval for break
   function TakeBreak()
   {
-    m = 5;
-    sec = 0;
+    m = 4;
+    sec = 59;
     time = setInterval(breakTimer, 1000);
   }
-
+//Running pomodoro timer
 function myTimer() {
     sec--;
     if(sec==-1)
@@ -104,7 +75,7 @@ function myTimer() {
          $('#brk').modal("show");
     }
 }
-
+//Running break timer
 function breakTimer() {
     sec--;
     if(sec==-1)
@@ -147,23 +118,23 @@ function breakTimer() {
       <button type = "button" style="position:absolute;left:145px;top:550px;" class="btn btn-danger" onclick="stop()">Cancel Pomodoro</button>
 
 
-      <!-- Modal reminding to take break-->
+      <!-- Modal suggesting to take break-->
       <div class="modal fade" id="brk">
           <div class="modal-dialog">
             <div class="modal-content">
       
-              <!-- Modal Header -->
+              
                <div class="modal-header">
                   <h4 class="modal-title">Congratulations!!</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                </div>
         
-              <!-- Modal body -->
+              
               <div class="modal-body">
                 Your pomodoro is done! Take some break.
               </div>
         
-              <!-- Modal footer -->
+              
               <div class="modal-footer">
                 <button type="button" class="btn btn-info" onclick="TakeBreak()" data-dismiss="modal">Yes, I need it</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Skip it</button>
@@ -179,17 +150,17 @@ function breakTimer() {
           <div class="modal-dialog">
             <div class="modal-content">
       
-              <!-- Modal Header -->
+              
                <div class="modal-header">
                   <h4 class="modal-title">Break is Over!!!</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                </div>
         
-              <!-- Modal body -->
+              
               <div class="modal-body">
                 Let's get back to work.
               </div>
-              <!-- Modal footer -->
+              
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Okay!</button>
               </div>
@@ -199,18 +170,18 @@ function breakTimer() {
 
 
 
-
+      <!-- Introduction to Pomodoro on loading the webpage -->
       <div class="modal fade" id="Pomodoro">
           <div class="modal-dialog">
             <div class="modal-content">
       
-              <!-- Modal Header -->
+              
                <div class="modal-header">
                   <b><h4 class="modal-title">What is Pomodoro?</h4></b>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                </div>
         
-              <!-- Modal body -->
+          
               <div class="modal-body">
                   <em style="font-size:20px">
                   <p>
